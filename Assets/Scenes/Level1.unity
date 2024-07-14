@@ -199,8 +199,16 @@ PrefabInstance:
       value: 0.221
       objectReference: {fileID: 0}
     - target: {fileID: 2311163012455292461, guid: 45a29a185d5e214489ca3a529460a5cb, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1287176855}
+    - target: {fileID: 2311163012455292461, guid: 45a29a185d5e214489ca3a529460a5cb, type: 3}
       propertyPath: m_WhatIsGround.m_Bits
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6875911350946499360, guid: 45a29a185d5e214489ca3a529460a5cb, type: 3}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6875911350946499360, guid: 45a29a185d5e214489ca3a529460a5cb, type: 3}
       propertyPath: m_Sprite
