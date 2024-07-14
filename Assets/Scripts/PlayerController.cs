@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask m_WhatIsGround;                          // A mask determining what is ground to the character
     [SerializeField] private Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
     [SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
-    [SerializeField] private Collider2D m_CrouchDisableCollider;                // A collider that will be disabled when crouching
+    [SerializeField] private Collider2D m_CrouchDisableCollider;
+    [SerializeField] private Animator animator;                                 // A collider that will be disabled when crouching
 
     const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
     private bool m_Grounded;            // Whether or not the player is grounded.
@@ -130,6 +131,15 @@ public class PlayerController : MonoBehaviour
                 // ... flip the player.
                 Flip();
             }
+
+            if(move == 0)
+            {
+                animator.SetBool("Move", false);
+            }
+            else
+            {
+                animator.SetBool("Move", true);
+            }
         }
         // If the player should jump...
         if (m_Grounded && jump)
@@ -137,6 +147,11 @@ public class PlayerController : MonoBehaviour
             // Add a vertical force to the player.
             m_Grounded = false;
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+            animator.SetBool("Jump", true);
+        }
+        else if (m_Grounded)
+        {
+            animator.SetBool("Jump", false);
         }
     }
 
@@ -151,4 +166,5 @@ public class PlayerController : MonoBehaviour
         theScale.x *= -1;
         transform.localScale = theScale;
     }
+
 }
