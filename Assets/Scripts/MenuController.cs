@@ -13,4 +13,14 @@ public class MenuController : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void ContinueGame()
+    {
+        Time.timeScale = 1;
+    }
 }
