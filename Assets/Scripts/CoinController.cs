@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CoinController : MonoBehaviour
 {
-    private int coins;
+    public GameData GameData;
     [SerializeField] private TMPro.TMP_Text coinsText;
     [SerializeField] private int value = 1;
     [SerializeField] private AudioSource audioSource;
@@ -13,8 +13,8 @@ public class CoinController : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            coins += value;
-            coinsText.text = "Coins: " + coins;
+            GameData.Coins += value;
+            coinsText.text = "Coins: " + GameData.Coins;
             audioSource.Play();
             Destroy(gameObject);
         }
